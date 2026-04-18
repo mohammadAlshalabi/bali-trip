@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bali 20 — Adventure Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1410;--paper:#f4ebe0;--sand:#e8d9c4;--sunset:#e85d3c;--coral:#f2915b;--gold:#d4a24c;--ocean:#1d5e7a;--deep:#0d2e3f;--jungle:#2d4a2b;--cream:#fcf7ef}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Fraunces',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden}
+.hero{min-height:100vh;background:linear-gradient(135deg,#e85d3c 0%,#f2915b 45%,#d4a24c 100%);position:relative;overflow:hidden;padding:50px 30px;display:flex;flex-direction:column;justify-content:space-between}
+.hero::after{content:'';position:absolute;bottom:-150px;right:-150px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,230,180,0.5) 0%,transparent 70%)}
+.hero::before{content:'';position:absolute;top:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(13,46,63,0.2) 0%,transparent 70%)}
+.hero-top{display:flex;justify-content:space-between;align-items:center;color:var(--cream);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;position:relative;z-index:2;flex-wrap:wrap;gap:15px}
+.hero-top .line{display:flex;align-items:center;gap:10px}
+.hero-top .dot{width:8px;height:8px;border-radius:50%;background:var(--cream);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+.hero-center{position:relative;z-index:2;margin:auto 0}
+.hero h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(70px,16vw,240px);line-height:0.85;color:var(--cream);letter-spacing:-0.06em;margin-bottom:20px;text-shadow:3px 3px 0 rgba(26,20,16,0.08)}
+.hero h1 em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--deep)}
+.hero-sub{color:var(--cream);font-family:'Fraunces',serif;font-size:clamp(16px,2vw,22px);font-style:italic;font-weight:300;max-width:700px;line-height:1.4}
+.hero-bottom{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;color:var(--cream);border-top:1px solid rgba(252,247,239,0.3);padding-top:25px}
+.hero-stat .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1;color:var(--deep)}
+.hero-stat .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;margin-top:8px;color:var(--cream)}
+section{padding:60px 30px;position:relative}
+.container{max-width:1200px;margin:0 auto}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sunset);margin-bottom:15px;display:flex;align-items:center;gap:15px}
+.section-label::before{content:'';width:30px;height:2px;background:var(--sunset)}
+.section-title{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(36px,6vw,72px);line-height:0.95;letter-spacing:-0.03em;color:var(--ink);margin-bottom:40px}
+.section-title em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--sunset)}
+.brief{background:var(--cream);border-bottom:2px solid var(--ink)}
+.brief-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;margin-top:30px}
+.brief-card{background:var(--paper);border:1px solid rgba(26,20,16,0.15);padding:25px;position:relative;transition:transform 0.3s ease}
+.brief-card:hover{transform:translateY(-4px)}
+.brief-card .icon{font-size:32px;margin-bottom:12px}
+.brief-card h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:18px;margin-bottom:10px;color:var(--deep)}
+.brief-card p{font-family:'Fraunces',serif;font-size:15px;color:var(--ink);opacity:0.85;line-height:1.5}
+.phases{background:var(--deep);color:var(--cream);padding:80px 30px}
+.phases .section-title{color:var(--cream)}
+.phases .section-label{color:var(--gold)}
+.phases .section-label::before{background:var(--gold)}
+.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;margin-top:40px}
+.phase{background:rgba(252,247,239,0.05);border:1px solid rgba(252,247,239,0.15);padding:30px;position:relative;overflow:hidden}
+.phase::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--sunset)}
+.phase.work::before{background:var(--gold)}
+.phase.final::before{background:var(--coral)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.phase h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;line-height:1.1;margin-bottom:8px;color:var(--cream)}
+.phase .dates{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--gold);margin-bottom:15px}
+.phase p{font-family:'Fraunces',serif;font-size:14px;opacity:0.85;line-height:1.5}
+.days{background:var(--paper)}
+.day{border-bottom:1px solid rgba(26,20,16,0.15);padding:35px 0;display:grid;grid-template-columns:110px 1fr;gap:25px;align-items:flex-start;transition:background 0.3s ease}
+.day:hover{background:rgba(232,93,60,0.03)}
+.day-num{font-family:'Archivo',sans-serif;font-weight:900;font-size:42px;color:var(--sunset);line-height:1}
+.day-num small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.15em;color:var(--ink);opacity:0.6;margin-top:6px;text-transform:uppercase}
+.day.work .day-num{color:var(--gold)}
+.day.travel .day-num{color:var(--ocean)}
+.day-content h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:24px;line-height:1.2;margin-bottom:6px;color:var(--ink);letter-spacing:-0.02em}
+.day-content h3 em{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--sunset)}
+.day-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-right:6px;margin-bottom:12px}
+.tag-beach{background:#e85d3c20;color:#e85d3c;border:1px solid #e85d3c40}
+.tag-work{background:#d4a24c20;color:#b8872f;border:1px solid #d4a24c40}
+.tag-adventure{background:#2d4a2b20;color:#2d4a2b;border:1px solid #2d4a2b40}
+.tag-chill{background:#1d5e7a20;color:#1d5e7a;border:1px solid #1d5e7a40}
+.tag-club{background:#8b2e3d20;color:#8b2e3d;border:1px solid #8b2e3d40}
+.tag-travel{background:#0d2e3f20;color:#0d2e3f;border:1px solid #0d2e3f40}
+.timeline{margin-top:12px}
+.timeslot{display:grid;grid-template-columns:75px 1fr;gap:15px;padding:8px 0;border-top:1px dashed rgba(26,20,16,0.15);align-items:flex-start}
+.timeslot:first-child{border-top:none}
+.time{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--sunset);font-weight:700;letter-spacing:0.05em;padding-top:3px}
+.day.work .time{color:var(--gold)}
+.activity{font-family:'Fraunces',serif;font-size:15px;line-height:1.5;color:var(--ink)}
+.activity strong{font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;color:var(--deep)}
+.activity .note{display:block;font-size:13px;opacity:0.7;font-style:italic;margin-top:3px}
+.day-cost{margin-top:15px;padding:10px 14px;background:rgba(13,46,63,0.06);border-left:3px solid var(--deep);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--deep);letter-spacing:0.03em}
+.day-cost strong{color:var(--sunset);font-weight:700}
+.spots{background:var(--ink);color:var(--cream);padding:80px 30px}
+.spots .section-title{color:var(--cream)}
+.spots .section-label{color:var(--coral)}
+.spots .section-label::before{background:var(--coral)}
+.spot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
+.spot{background:rgba(252,247,239,0.04);border:1px solid rgba(252,247,239,0.1);padding:22px;transition:all 0.3s ease}
+.spot:hover{background:rgba(232,93,60,0.1);border-color:var(--sunset);transform:translateY(-3px)}
+.spot-cat{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--coral);text-transform:uppercase;margin-bottom:6px}
+.spot h4{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;line-height:1.1;margin-bottom:8px;color:var(--cream)}
+.spot p{font-family:'Fraunces',serif;font-size:13px;line-height:1.5;opacity:0.8}
+.form-section{background:var(--cream);border-bottom:2px solid var(--ink)}
+.form-section.alt{background:var(--paper)}
+.form-section .section-label{color:var(--ocean)}
+.form-section.alt .section-label{color:var(--jungle)}
+.form-section .section-label::before{background:var(--ocean)}
+.form-section.alt .section-label::before{background:var(--jungle)}
+.form-wrapper{margin-top:40px;display:flex;justify-content:center}
+@media(max-width:900px){.day{grid-template-columns:80px 1fr;gap:15px}.day-num{font-size:32px}.section-title{font-size:clamp(28px,5vw,48px)}.hero h1{font-size:clamp(48px,12vw,120px)}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-top">
+    <div class="line"><span class="dot"></span> Sep 13 – Oct 3 · 2026</div>
+    <div class="line">Canggu, Bali 🌴</div>
+  </div>
+  <div class="hero-center">
+    <h1>Bali <em>20</em></h1>
+    <p class="hero-sub">ASTON Canggu → ATAP Beach Resort. Club weeks separated by Ubud adventures. Fridays always El Kabron. Direct. Intentional. Ready.</p>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-stat"><div class="num">20</div><div class="lbl">Days</div></div>
+    <div class="hero-stat"><div class="num">2</div><div class="lbl">Hotels</div></div>
+    <div class="hero-stat"><div class="num">$1,350–1,950</div><div class="lbl">Per Person</div></div>
+    <div class="hero-stat"><div class="num">∞</div><div class="lbl">Memories</div></div>
+  </div>
+</section>
+<section class="brief">
+  <div class="container">
+    <div class="section-label">✈️ Trip Summary</div>
+    <h2 class="section-title">Bali <em>essentials</em></h2>
+    <div class="brief-grid">
+      <div class="brief-card"><div class="icon">🌴</div><h3>20 Days</h3><p>September 13 – October 3, 2026</p></div>
+      <div class="brief-card"><div class="icon">🏨</div><h3>ASTON Canggu</h3><p>14 nights · Sep 13–27 (Party Weeks)</p></div>
+      <div class="brief-card"><div class="icon">🏝️</div><h3>ATAP Beach Resort</h3><p>6 nights · Sep 27–Oct 3 (Work Week)</p></div>
+      <div class="brief-card"><div class="icon">💰</div><h3>$1,350–1,950</h3><p>Per person estimated budget</p></div>
+    </div>
+  </div>
+</section>
+<section class="phases">
+  <div class="container">
+    <div class="section-label">📍 Trip Structure</div>
+    <h2 class="section-title">Club Weeks + <em>Ubud Adventures</em></h2>
+    <div class="phase-grid">
+      <div class="phase"><div class="phase-num">Phase 01 · 6 Days</div><h3>CLUB WEEK 1</h3><div class="dates">Sep 13 – 18</div><p>Arrive Sunday night. Beach clubs all week. Mount Batur sunrise hike (Wed 1:30 AM). Friday: El Kabron tradition.</p></div>
+      <div class="phase"><div class="phase-num">Phase 02 · 1 Day</div><h3>UBUD TRIP 1</h3><div class="dates">Sep 19 (Sat)</div><p>Creyta only. Leave 4-5 PM, return to Canggu for dinner + Old Man's + Sand Bar. Chill recovery day.</p></div>
+      <div class="phase"><div class="phase-num">Phase 03 · 7 Days</div><h3>CLUB WEEK 2</h3><div class="dates">Sep 20 – 26</div><p>Beach clubs. Wed (23): Ubud Trip 2 (Kayon + ATV). Fri (25): El Kabron. Sat (26): XPark full day Nusa Penida.</p></div>
+      <div class="phase work"><div class="phase-num">Phase 04 · 6 Days · Work</div><h3>ATAP WORK WEEK</h3><div class="dates">Sep 27 – Oct 3</div><p>Mornings free (8 AM–2 PM). Work 2 PM–11 PM from room. Fridays: Oct 2 El Kabron send-off 🎉</p></div>
+    </div>
+  </div>
+</section>
+<section class="days">
+  <div class="container">
+    <div class="section-label">📅 Day by Day</div>
+    <h2 class="section-title">The <em>Itinerary</em></h2>
+    <div class="day travel"><div class="day-num">01<small>Sun · Sep 13</small></div><div class="day-content"><h3>Arrival · <em>Direct to Canggu</em></h3><span class="day-tag tag-travel">Travel</span><div class="timeline"><div class="timeslot"><div class="time">23:30</div><div class="activity"><strong>Land at DPS</strong><span class="note">Immigration, bags, get VOA ($35), Telkomsel SIM (~$15)</span></div></div><div class="timeslot"><div class="time">00:30</div><div class="activity"><strong>Driver pickup → ASTON Canggu</strong><span class="note">~45 min drive. Straight to the base.</span></div></div><div class="timeslot"><div class="time">01:30</div><div class="activity"><strong>Hotel check-in · crash</strong><span class="note">Request higher floor to avoid rooftop bar noise</span></div></div></div><div class="day-cost"><strong>Budget:</strong> Driver $15 · SIM ~$15</div></div></div>
+    <div class="day"><div class="day-num">02<small>Mon · Sep 14</small></div><div class="day-content"><h3>Recovery Start · <em>Find your rhythm</em></h3><span class="day-tag tag-chill">Chill</span><span class="day-tag tag-club">Beach Club</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Late breakfast at ASTON</strong><span class="note">Buffet style, recover from flight</span></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Batu Bolong Beach walk</strong><span class="note">Explore Canggu, get your bearings</span></div></div><div class="timeslot"><div class="time">14:30</div><div class="activity"><strong>Coffee at Crate Cafe</strong></div></div><div class="timeslot"><div class="time">16:00</div><div class="activity"><strong>Pool time or early beach club</strong></div></div><div class="timeslot"><div class="time">19:00</div><div class="activity"><strong>Dinner + casual night</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$40–60 each</div></div></div>
+    <div class="day"><div class="day-num">03<small>Tue · Sep 15</small></div><div class="day-content"><h3>Beach Club Day · <em>Into the rhythm</em></h3><span class="day-tag tag-club">Beach Club</span><span class="day-tag tag-chill">Chill</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Brunch at hotel</strong></div></div><div class="timeslot"><div class="time">11:30</div><div class="activity"><strong>Finns Beach Club — book daybed</strong><span class="note">4 pools, swim-up bar, DJ</span></div></div><div class="timeslot"><div class="time">18:30</div><div class="activity"><strong>Sunset at club</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Move to Old Man's or Sand Bar</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$85–120 each</div></div></div>
+    <div class="day"><div class="day-num">04<small>Wed · Sep 16</small></div><div class="day-content"><h3>Beach Club Chill · <em>Building momentum</em></h3><span class="day-tag tag-club">Beach Club</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Recovery breakfast</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Savaya or The Lawn</strong><span class="note">Different vibe. Explore options.</span></div></div><div class="timeslot"><div class="time">18:00</div><div class="activity"><strong>Sunset + food on site</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Dinner + casual night</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$75–110 each</div></div></div>
+    <div class="day"><div class="day-num">05<small>Thu · Sep 17</small></div><div class="day-content"><h3>Mount Batur Sunrise · <em>Peak adventure</em></h3><span class="day-tag tag-adventure">Adventure</span><div class="timeline"><div class="timeslot"><div class="time">01:30</div><div class="activity"><strong>Pickup for Mount Batur hike</strong><span class="note">Book in advance on GetYourGuide or Viator</span></div></div><div class="timeslot"><div class="time">04:00</div><div class="activity"><strong>Hike to summit</strong></div></div><div class="timeslot"><div class="time">06:15</div><div class="activity"><strong>Sunrise at top</strong><span class="note">Unforgettable. Bring jacket. Coffee available.</span></div></div><div class="timeslot"><div class="time">09:00</div><div class="activity"><strong>Return to hotel</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Lunch + rest afternoon/evening</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$50–80 each</div></div></div>
+    <div class="day"><div class="day-num">06<small>Fri · Sep 18</small></div><div class="day-content"><h3>El Kabron Friday · <em>Tradition begins</em></h3><span class="day-tag tag-club">Beach Club</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Recovery breakfast + rest morning</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Lunch + beach walk</strong></div></div><div class="timeslot"><div class="time">14:30</div><div class="activity"><strong>EL KABRON</strong><span class="note">Cliff edge, Spanish food, sunset magic. Book ahead.</span></div></div><div class="timeslot"><div class="time">18:30</div><div class="activity"><strong>Sunset cocktails + dinner</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Optional: Move to clubs or relax</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$90–140 each</div></div></div>
+    <div class="day travel"><div class="day-num">07<small>Sat · Sep 19</small></div><div class="day-content"><h3>Ubud Day 1 · <em>Creyta escape</em></h3><span class="day-tag tag-adventure">Adventure</span><span class="day-tag tag-chill">Chill</span><div class="timeline"><div class="timeslot"><div class="time">07:30</div><div class="activity"><strong>Driver pickup → Ubud</strong><span class="note">~1h 45m. Coffee to go.</span></div></div><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Creyta Ubud</strong><span class="note">Coffee, art, chill vibe. Instagram-friendly.</span></div></div><div class="timeslot"><div class="time">13:00</div><div class="activity"><strong>Lunch around Ubud</strong></div></div><div class="timeslot"><div class="time">15:30</div><div class="activity"><strong>Explore, relax, browse</strong></div></div><div class="timeslot"><div class="time">16:30</div><div class="activity"><strong>Driver pickup → Canggu</strong></div></div><div class="timeslot"><div class="time">19:00</div><div class="activity"><strong>Dinner in Canggu</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Old Man's + Sand Bar</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$80–120 each</div></div></div>
+    <div class="day"><div class="day-num">08<small>Sun · Sep 20</small></div><div class="day-content"><h3>Beach Club Recovery · <em>Back to rhythm</em></h3><span class="day-tag tag-club">Beach Club</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Brunch + recovery</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Beach club day</strong><span class="note">Ku De Ta, The Lawn, or La Brisa. Mix it up.</span></div></div><div class="timeslot"><div class="time">18:00</div><div class="activity"><strong>Sunset at club</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Dinner + nightlife</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$80–120 each</div></div></div>
+    <div class="day"><div class="day-num">09<small>Mon · Sep 21</small></div><div class="day-content"><h3>Beach Club Monday · <em>Momentum building</em></h3><span class="day-tag tag-club">Beach Club</span><span class="day-tag tag-chill">Chill</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Breakfast + coffee</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Finns or Savaya</strong></div></div><div class="timeslot"><div class="time">18:00</div><div class="activity"><strong>Stay for sunset</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Dinner + casual night</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$75–110 each</div></div></div>
+    <div class="day"><div class="day-num">10<small>Tue · Sep 22</small></div><div class="day-content"><h3>Beach Club Tuesday · <em>Party build-up</em></h3><span class="day-tag tag-club">Beach Club</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Breakfast</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Beach club (new spot)</strong><span class="note">Try La Brisa or Echo Beach vibes.</span></div></div><div class="timeslot"><div class="time">18:00</div><div class="activity"><strong>Sunset drinks</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Dinner + building night out</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$80–130 each</div></div></div>
+    <div class="day travel"><div class="day-num">11<small>Wed · Sep 23</small></div><div class="day-content"><h3>Ubud Day 2 · <em>Kayon + ATV adventure</em></h3><span class="day-tag tag-adventure">Adventure</span><div class="timeline"><div class="timeslot"><div class="time">07:30</div><div class="activity"><strong>Driver pickup → Ubud</strong></div></div><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Kayon Jungle Resort</strong><span class="note">Infinity pool over jungle. Breathtaking.</span></div></div><div class="timeslot"><div class="time">13:00</div><div class="activity"><strong>Lunch</strong></div></div><div class="timeslot"><div class="time">14:30</div><div class="activity"><strong>ATV Quad Bike Tour</strong><span class="note">Kuber Bali Adventure. Rice paddies, forest trails.</span></div></div><div class="timeslot"><div class="time">17:00</div><div class="activity"><strong>Quick coffee + relax</strong></div></div><div class="timeslot"><div class="time">18:30</div><div class="activity"><strong>Driver → Canggu</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Late dinner</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$120–160 each</div></div></div>
+    <div class="day"><div class="day-num">12<small>Thu · Sep 24</small></div><div class="day-content"><h3>Recovery Thursday · <em>Chill before Friday</em></h3><span class="day-tag tag-chill">Chill</span><span class="day-tag tag-beach">Beach</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Recovery breakfast + massage</strong></div></div><div class="timeslot"><div class="time">14:00</div><div class="activity"><strong>Pool time or beach walk</strong></div></div><div class="timeslot"><div class="time">16:00</div><div class="activity"><strong>Coffee + relax</strong></div></div><div class="timeslot"><div class="time">19:00</div><div class="activity"><strong>Early dinner, hydrate</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$50–80 each</div></div></div>
+    <div class="day"><div class="day-num">13<small>Fri · Sep 25</small></div><div class="day-content"><h3>El Kabron Friday · <em>Second Friday tradition</em></h3><span class="day-tag tag-club">Beach Club</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Breakfast + settle in</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Light lunch</strong></div></div><div class="timeslot"><div class="time">14:30</div><div class="activity"><strong>EL KABRON</strong><span class="note">Cliff edge, sunset magic. Friday ritual.</span></div></div><div class="timeslot"><div class="time">18:30</div><div class="activity"><strong>Sunset + cocktails</strong></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Dinner on site</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$100–150 each</div></div></div>
+    <div class="day"><div class="day-num">14<small>Sat · Sep 26</small></div><div class="day-content"><h3>XPark Full Day · <em>Nusa Penida adventure</em></h3><span class="day-tag tag-adventure">Adventure</span><div class="timeline"><div class="timeslot"><div class="time">07:00</div><div class="activity"><strong>Early pickup to Nusa Penida</strong><span class="note">Book XPark in advance. Boat + activities.</span></div></div><div class="timeslot"><div class="time">08:30</div><div class="activity"><strong>Arrive XPark</strong></div></div><div class="timeslot"><div class="time">09:00</div><div class="activity"><strong>Full day: Cliff jumping, waterslides, swimming</strong><span class="note">Lunch included. Bring sunscreen.</span></div></div><div class="timeslot"><div class="time">18:00</div><div class="activity"><strong>Return to Canggu</strong></div></div><div class="timeslot"><div class="time">19:00</div><div class="activity"><strong>Quick dinner + relax</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$100–150 each</div></div></div>
+    <div class="day travel"><div class="day-num">15<small>Sun · Sep 27</small></div><div class="day-content"><h3>ASTON → ATAP · <em>Base shift</em></h3><span class="day-tag tag-travel">Travel</span><div class="timeline"><div class="timeslot"><div class="time">11:00</div><div class="activity"><strong>Checkout from ASTON, pack</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Lunch in Canggu, final shopping</strong></div></div><div class="timeslot"><div class="time">13:30</div><div class="activity"><strong>Drive to ATAP Beach Resort</strong><span class="note">Same area, just relocated. 15 min ride.</span></div></div><div class="timeslot"><div class="time">14:30</div><div class="activity"><strong>Check in, test WiFi, settle</strong></div></div><div class="timeslot"><div class="time">16:00</div><div class="activity"><strong>Explore ATAP, rooftop pool</strong></div></div><div class="timeslot"><div class="time">19:00</div><div class="activity"><strong>Easy dinner nearby</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$50–80 each</div></div></div>
+    <div class="day work"><div class="day-num">16–19<small>Mon–Thu · Sep 28–Oct 1</small></div><div class="day-content"><h3>Work Week · <em>Hybrid mode</em></h3><span class="day-tag tag-work">Work</span><span class="day-tag tag-chill">Chill</span><div class="timeline"><div class="timeslot"><div class="time">08:00</div><div class="activity"><strong>Morning: Beach walk, coffee, activities</strong><span class="note">8 AM–2 PM is your free time</span></div></div><div class="timeslot"><div class="time">14:00</div><div class="activity"><strong>Return to ATAP, settle in room</strong></div></div><div class="timeslot"><div class="time">14:30</div><div class="activity"><strong>Work from room · 2 PM–11 PM</strong><span class="note">Excellent WiFi. Close door, focus.</span></div></div><div class="timeslot"><div class="time">19:00</div><div class="activity"><strong>Quick dinner break (30 min)</strong></div></div><div class="timeslot"><div class="time">23:00</div><div class="activity"><strong>Wrap up, relax, sleep</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$60–90 each daily</div></div></div>
+    <div class="day"><div class="day-num">20<small>Fri · Oct 2</small></div><div class="day-content"><h3>EL KABRON SEND-OFF · <em>Grand finale 🎉</em></h3><span class="day-tag tag-club">Beach Club</span><div class="timeline"><div class="timeslot"><div class="time">09:00</div><div class="activity"><strong>Breakfast, beach walk</strong></div></div><div class="timeslot"><div class="time">12:00</div><div class="activity"><strong>Pack, last-minute shopping</strong></div></div><div class="timeslot"><div class="time">16:00</div><div class="activity"><strong>Shower, fresh up</strong></div></div><div class="timeslot"><div class="time">17:00</div><div class="activity"><strong>EL KABRON — FINAL NIGHT</strong><span class="note">Sunset drinks, celebration, memories</span></div></div><div class="timeslot"><div class="time">21:00</div><div class="activity"><strong>Dinner at El Kabron</strong></div></div><div class="timeslot"><div class="time">23:00</div><div class="activity"><strong>Return to ATAP, pack, sleep</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> ~$120–180 each</div></div></div>
+    <div class="day travel"><div class="day-num">21<small>Sat · Oct 3</small></div><div class="day-content"><h3>Departure · <em>Safe travels home</em></h3><span class="day-tag tag-travel">Travel</span><div class="timeline"><div class="timeslot"><div class="time">10:00</div><div class="activity"><strong>Checkout, final packing</strong></div></div><div class="timeslot"><div class="time">11:00</div><div class="activity"><strong>Lunch in Canggu one last time</strong></div></div><div class="timeslot"><div class="time">13:00</div><div class="activity"><strong>Driver to DPS airport</strong><span class="note">~45 min. Reflect on the adventure.</span></div></div><div class="timeslot"><div class="time">15:30</div><div class="activity"><strong>Airport check-in</strong></div></div><div class="timeslot"><div class="time">18:45</div><div class="activity"><strong>Flight departs</strong></div></div></div><div class="day-cost"><strong>Budget:</strong> Driver $15–25</div></div></div>
+  </div>
+</section>
+<section class="spots">
+  <div class="container">
+    <div class="section-label">🍹 Key Spots</div>
+    <h2 class="section-title">Places to <em>Remember</em></h2>
+    <div class="spot-grid">
+      <div class="spot"><div class="spot-cat">Beach Club</div><h4>El Kabron</h4><p>Cliff edge, Spanish food, sunset magic. FRIDAY TRADITION. Sep 18, 25, Oct 2. Book ahead.</p></div>
+      <div class="spot"><div class="spot-cat">Beach Club</div><h4>Finns</h4><p>4 pools, swim-up bar, DJs all day. Canggu's largest beach club. Perfect intro.</p></div>
+      <div class="spot"><div class="spot-cat">Beach Club</div><h4>Savaya</h4><p>21+, dress code, clifftop sunset. Luxury vibe. Premium experience worth trying.</p></div>
+      <div class="spot"><div class="spot-cat">Bar/Nightlife</div><h4>Old Man's</h4><p>Legendary Canggu spot. Friday nights iconic. Mix of ages and travelers. Always good.</p></div>
+      <div class="spot"><div class="spot-cat">Bar/Nightlife</div><h4>Sand Bar</h4><p>Casual, beach vibes, perfect for late nights. Close to ASTON. Post-club spot.</p></div>
+      <div class="spot"><div class="spot-cat">Adventure</div><h4>Mount Batur</h4><p>Sunrise hike Sep 17. Book on GetYourGuide. 1:30 AM pickup. Unforgettable views.</p></div>
+      <div class="spot"><div class="spot-cat">Adventure</div><h4>XPark Nusa Penida</h4><p>Full-day Sep 26. Cliff jumping, waterslides, boat trip. Separate island adventure.</p></div>
+      <div class="spot"><div class="spot-cat">Day Trip</div><h4>Ubud Creyta</h4><p>Sep 19. Art cafe, chill vibe. Leave 4-5 PM, return for dinner + Old Man's.</p></div>
+      <div class="spot"><div class="spot-cat">Day Trip</div><h4>Ubud Kayon + ATV</h4><p>Sep 23. Jungle infinity pool + quad bike tour. Return evening. Full adventure day.</p></div>
+    </div>
+  </div>
+</section>
+<section class="form-section">
+  <div class="container">
+    <div class="section-label">👥 Join the Trip</div>
+    <h2 class="section-title">Sign Up · <em>You're invited</em></h2>
+    <p style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);margin-bottom:30px;opacity:0.85">Ready to join? Drop your name and email below. We'll send you all the details, updates, and the crew coordination link.</p>
+    <div class="form-wrapper">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfO4hTOJCqkQjSR7akLcyK7DTwuJ4gWx5yZyY5tlVkg5kLD8g/viewform?embedded=true" width="640" height="453" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
+</section>
+<section class="form-section alt">
+  <div class="container">
+    <div class="section-label">💡 Suggest a Spot</div>
+    <h2 class="section-title">Share <em>Your Ideas</em></h2>
+    <p style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);margin-bottom:30px;opacity:0.85">Know a hidden gem? Found a new beach club? Want to recommend a restaurant or adventure? Share your suggestions and help make this trip unforgettable.</p>
+    <div class="form-wrapper">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc9jVALjH9kChoQGo0qUfTqkGJP7ehXL1R1pVYL8R53w2S38g/viewform?embedded=true" width="640" height="588" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
+</section>
+<footer style="background:var(--paper);padding:60px 30px;text-align:center;border-top:2px solid var(--ink)">
+  <div class="container">
+    <h3 style="font-family:'Archivo',sans-serif;font-size:28px;margin-bottom:15px;color:var(--ink)">Let's Go 🌴</h3>
+    <p style="font-family:'Fraunces',serif;font-size:16px;color:var(--ink);margin-bottom:20px">ASTON Canggu (Sep 13–27) · ATAP Beach Resort (Sep 27–Oct 3)</p>
+    <p style="font-family:'Fraunces',serif;font-size:14px;opacity:0.7;margin-top:20px">Club weeks separated by Ubud adventures. Fridays always El Kabron. Have the adventure of your life. 🌊</p>
+  </div>
+</footer>
+</body>
+</html>
