@@ -1,1 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#FDF8F0">
+<title>Sharm El Sheikh · May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Jost:wght@300..700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light only;--bg:#FDF8F0;--ink:#2A1810;--ink-soft:#5C4332;--sand:#F4E4C8;--terracotta:#B8572F;--rust:#8B3A1F;--teal:#0A5A5A;--teal-deep:#063F3F;--gold:#C9962D;--line:rgba(42,24,16,0.12)}
+html{color-scheme:light only;background:#FDF8F0;scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#FDF8F0!important;color:#2A1810!important;font-family:'Jost',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden;background-image:radial-gradient(circle at 20% 10%,rgba(184,87,47,.06) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(10,90,90,.05) 0%,transparent 50%);background-attachment:fixed}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.7 0 0 0 0 0.5 0 0 0 0 0.3 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:1}
+main{position:relative;z-index:2}
+.container{max-width:720px;margin:0 auto;padding:0 24px}
+.hero{padding:80px 24px 60px;text-align:center;position:relative}
+.hero-ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:32px;opacity:0;animation:fadeUp .8s .1s ease forwards}
+.hero-ornament .line{width:48px;height:1px;background:var(--terracotta)}
+.hero-ornament .diamond{width:8px;height:8px;background:var(--terracotta);transform:rotate(45deg)}
+.hero-label{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--terracotta);font-weight:500;opacity:0;animation:fadeUp .8s .2s ease forwards}
+.hero-arabic{font-family:'Amiri',serif;font-size:36px;color:var(--teal-deep);margin:16px 0 8px;opacity:0;animation:fadeUp .8s .3s ease forwards}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(48px,11vw,84px);line-height:.95;letter-spacing:-.02em;color:var(--ink);margin-bottom:20px;opacity:0;animation:fadeUp .8s .4s ease forwards}
+h1 em{font-style:italic;font-weight:300;color:var(--terracotta)}
+.hero-dates{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--ink-soft);font-weight:300;margin-top:8px;opacity:0;animation:fadeUp .8s .5s ease forwards}
+.hero-meta{display:flex;justify-content:center;gap:32px;margin-top:40px;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);opacity:0;animation:fadeUp .8s .6s ease forwards}
+.hero-meta span strong{display:block;font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);font-family:'Fraunces',serif;font-weight:400;margin-top:4px}
+section{padding:48px 0}
+.section-header{margin-bottom:40px;text-align:center}
+.section-label{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:12px}
+h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(32px,7vw,44px);line-height:1.05;letter-spacing:-.01em;color:var(--ink)}
+h2 em{font-style:italic;color:var(--terracotta)}
+.facts{background:linear-gradient(135deg,var(--sand) 0%,#F8EAC8 100%);padding:32px 28px;margin:0 -4px;position:relative;overflow:hidden}
+.facts::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--terracotta),transparent)}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 20px}
+.fact{display:flex;flex-direction:column;gap:4px}
+.fact-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
+.fact-value{font-family:'Fraunces',serif;font-size:18px;color:var(--ink);line-height:1.3}
+.day{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid var(--line)}
+.day:last-child{border-bottom:none}
+.day-number{font-family:'Fraunces',serif;font-weight:300;font-style:italic}
+.day-num{font-size:48px;line-height:1;color:var(--terracotta);display:block}
+.day-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-soft);font-family:'Jost',sans-serif;font-style:normal;font-weight:500;margin-top:6px;display:block}
+.day-content h3{font-family:'Fraunces',serif;font-weight:400;font-size:24px;line-height:1.2;margin-bottom:4px;color:var(--ink)}
+.day-date{font-size:12px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+.day-plan{list-style:none;display:flex;flex-direction:column;gap:14px}
+.day-plan li{padding-left:18px;position:relative;color:var(--ink-soft);font-size:15px;line-height:1.55}
+.day-plan li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--terracotta);border-radius:50%}
+.day-plan li strong{color:var(--ink);font-weight:500}
+.spots{display:flex;flex-direction:column;gap:20px}
+.spot{background:#fff;border:1px solid var(--line);padding:24px;transition:all .3s ease;position:relative;overflow:hidden}
+.spot::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--terracotta);transform:scaleY(0);transform-origin:top;transition:transform .4s ease}
+.spot:hover{transform:translateX(4px);box-shadow:0 8px 24px rgba(42,24,16,.06)}
+.spot:hover::before{transform:scaleY(1)}
+.spot-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px}
+.spot h3{font-family:'Fraunces',serif;font-weight:400;font-size:22px;color:var(--ink);line-height:1.2}
+.spot-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);background:rgba(10,90,90,.08);padding:4px 10px;white-space:nowrap;font-weight:500;flex-shrink:0}
+.spot-area{font-size:13px;color:var(--terracotta);margin-bottom:12px;font-style:italic;font-family:'Fraunces',serif}
+.spot p{color:var(--ink-soft);font-size:15px;line-height:1.6;margin-bottom:14px}
+.spot-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--terracotta);text-decoration:none;font-weight:500;transition:gap .3s}
+.spot-link:hover{gap:10px}
+.spot-link::after{content:'→'}
+.hotels{display:flex;flex-direction:column;gap:16px}
+.hotel{display:grid;grid-template-columns:40px 1fr auto;gap:16px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.hotel:last-child{border-bottom:none}
+.hotel-rank{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:36px;color:var(--terracotta);line-height:1}
+.hotel-info h4{font-family:'Fraunces',serif;font-weight:500;font-size:19px;color:var(--ink);margin-bottom:4px;line-height:1.25}
+.hotel-info p{font-size:14px;color:var(--ink);line-height:1.5;opacity:.75}
+.hotel a{color:#fff;background:var(--terracotta);font-size:11px;text-transform:uppercase;letter-spacing:.15em;text-decoration:none;font-weight:600;padding:10px 16px;transition:background .3s;white-space:nowrap}
+.hotel a:hover{background:var(--rust)}
+.tips{background:var(--teal-deep);color:#F4E4C8;padding:48px 28px;margin:0 -4px;position:relative}
+.tips::before{content:'';position:absolute;top:20px;right:20px;width:40px;height:40px;border:1px solid rgba(244,228,200,.2);border-radius:50%}
+.tips::after{content:'';position:absolute;top:28px;right:28px;width:24px;height:24px;background:var(--gold);border-radius:50%;opacity:.3}
+.tips h2{color:#F4E4C8;margin-bottom:32px}
+.tips h2 em{color:var(--gold)}
+.tips-grid{display:grid;gap:24px}
+.tip{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start}
+.tip-icon{font-family:'Fraunces',serif;font-style:italic;font-size:28px;color:var(--gold);line-height:1}
+.tip h4{font-family:'Fraunces',serif;font-weight:400;font-size:17px;color:#F4E4C8;margin-bottom:4px}
+.tip p{font-size:14px;color:rgba(244,228,200,.75);line-height:1.55}
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:24px 0;padding:0 24px}
+.divider .line{flex:1;height:1px;background:var(--line)}
+.divider .ornament{color:var(--terracotta);font-family:'Fraunces',serif;font-style:italic;font-size:18px;opacity:.6}
+footer{text-align:center;padding:60px 24px 48px;color:var(--ink-soft);font-size:13px;font-family:'Fraunces',serif;font-style:italic}
+footer .arabic{font-family:'Amiri',serif;font-style:normal;font-size:20px;color:var(--terracotta);margin-bottom:8px;display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media (max-width:520px){.hero{padding:60px 20px 40px}.hero-meta{gap:20px;font-size:10px}.hero-meta span strong{font-size:16px}.day{grid-template-columns:60px 1fr;gap:16px;padding:24px 0}.day-num{font-size:36px}.facts-grid{grid-template-columns:1fr;gap:18px}.spot{padding:20px}.tips{padding:36px 24px}}
+@media (prefers-color-scheme:dark){html,body{background:#FDF8F0!important;color:#2A1810!important}h1,h2,h3,h4{color:#2A1810!important}.day-content h3{color:#2A1810!important}.spot{background:#fff!important}.spot h3{color:#2A1810!important}.spot p{color:#5C4332!important}.hotel-info h4{color:#2A1810!important}.hotel-info p{color:#2A1810!important}.day-plan li{color:#5C4332!important}.day-plan li strong{color:#2A1810!important}.fact-value{color:#2A1810!important}.hero-dates{color:#5C4332!important}.hero-meta{color:#5C4332!important}.hero-meta span strong{color:#2A1810!important}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="hero-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+<div class="hero-label">A Red Sea Getaway</div>
+<div class="hero-arabic">شرم الشيخ</div>
+<h1>Sharm<br><em>El Sheikh</em></h1>
+<div class="hero-dates">May 26 — 30, 2026</div>
+<div class="hero-meta"><span>Nights<strong>4</strong></span><span>Days<strong>5</strong></span><span>Vibe<strong>Calm</strong></span></div>
+</section>
+
+<div class="divider"><span class="line"></span><span class="ornament">◈</span><span class="line"></span></div>
+
+<section class="container">
+<div class="facts"><div class="facts-grid">
+<div class="fact"><span class="fact-label">From</span><span class="fact-value">Amman → Sharm<br>Direct flight, ~1h 20m</span></div>
+<div class="fact"><span class="fact-label">Weather</span><span class="fact-value">28–32°C sunny<br>Sea ~25°C warm</span></div>
+<div class="fact"><span class="fact-label">Budget</span><span class="fact-value">50–60 JOD<br>per night</span></div>
+<div class="fact"><span class="fact-label">Currency</span><span class="fact-value">Egyptian Pound<br>(USD widely used)</span></div>
+</div></div>
+</section>
+
+<section class="container">
+<div class="section-header"><div class="section-label">The Plan</div><h2>Day by <em>Day</em></h2></div>
+
+<div class="day">
+<div class="day-number"><span class="day-num">01</span><span class="day-label">Arrive</span></div>
+<div class="day-content">
+<h3>Landing & unwinding</h3><div class="day-date">Tue · May 26</div>
+<ul class="day-plan">
+<li><strong>Afternoon —</strong> Arrive Sharm airport, transfer to hotel, check in, pool time</li>
+<li><strong>Early evening —</strong> Quick stroll along Naama Bay promenade — cafes, ice cream, shops</li>
+<li><strong>Dinner —</strong> Easy first night dinner at the hotel or a light bite in Naama Bay</li>
+</ul>
+</div>
+</div>
+
+<div class="day">
+<div class="day-number"><span class="day-num">02</span><span class="day-label">Cafes</span></div>
+<div class="day-content">
+<h3>Naama Bay cafes & dinner</h3><div class="day-date">Wed · May 27</div>
+<ul class="day-plan">
+<li><strong>Morning —</strong> Pool and beach at the hotel</li>
+<li><strong>Late afternoon —</strong> Taxi to Naama Bay, stroll the promenade, coffee at Palm Cafe or browse the shops</li>
+<li><strong>Sunset —</strong> Dinner at <strong>Rangoli</strong> (top-rated Indian restaurant at the Movenpick) with panoramic sunset views over Naama Bay</li>
+</ul>
+</div>
+</div>
+
+<div class="day">
+<div class="day-number"><span class="day-num">03</span><span class="day-label">Cliff</span></div>
+<div class="day-content">
+<h3>Farsha & Italian evening</h3><div class="day-date">Thu · May 28</div>
+<ul class="day-plan">
+<li><strong>Morning —</strong> Pool and beach at the hotel</li>
+<li><strong>Late afternoon —</strong> Farsha Mountain Lounge in Hadaba (short taxi ride) — mint tea, shisha, and the Red Sea view</li>
+<li><strong>Evening —</strong> Taxi back to Naama Bay for dinner at <strong>Pomodoro</strong> — charming Italian with a terrace, homemade pizza and pasta</li>
+</ul>
+</div>
+</div>
+
+<div class="day">
+<div class="day-number"><span class="day-num">04</span><span class="day-label">Market</span></div>
+<div class="day-content">
+<h3>Old Market & seafood night</h3><div class="day-date">Fri · May 29</div>
+<ul class="day-plan">
+<li><strong>Morning —</strong> Pool and beach at the hotel</li>
+<li><strong>Late afternoon —</strong> Al Sahaba Mosque (stunning architecture) then browse the Old Market for spices, lanterns, and souvenirs</li>
+<li><strong>Dinner —</strong> <strong>Fares Seafood</strong> in the Old Market — a Sharm legend, fresh grilled fish, generous portions</li>
+<li><strong>Evening —</strong> Stop by Soho Square for the 9 PM dancing fountain show on the way back</li>
+</ul>
+</div>
+</div>
+
+<div class="day">
+<div class="day-number"><span class="day-num">05</span><span class="day-label">Fly</span></div>
+<div class="day-content">
+<h3>One last swim</h3><div class="day-date">Sat · May 30</div>
+<ul class="day-plan">
+<li><strong>Morning —</strong> Breakfast, final swim / beach time</li>
+<li><strong>Late morning —</strong> Check out, transfer to airport</li>
+<li><strong>Pick up —</strong> A small bottle of Cleopatra perfume oil from the Old Market as a souvenir</li>
+</ul>
+</div>
+</div>
+</section>
+
+<div class="divider"><span class="line"></span><span class="ornament">◈</span><span class="line"></span></div>
+
+<section class="container">
+<div class="section-header"><div class="section-label">The Spots</div><h2>Where to <em>go</em></h2></div>
+<div class="spots">
+
+<div class="spot">
+<div class="spot-header"><h3>Farsha Mountain Lounge</h3><span class="spot-tag">Cafe</span></div>
+<div class="spot-area">Hadaba · clifftop</div>
+<p>Multi-level Bedouin-style cafe carved into the cliff, lanterns, carpets, cushions — the most iconic sunset spot in all of Sharm. Open 11 AM – 1 AM. Go for mint tea and stay for the view.</p>
+<a href="https://www.google.com/maps/search/Farsha+Cafe+Sharm+El+Sheikh" class="spot-link">Find on Maps</a>
+</div>
+
+<div class="spot">
+<div class="spot-header"><h3>Al Sahaba Mosque</h3><span class="spot-tag">Culture</span></div>
+<div class="spot-area">Sharm El Maya · Old Market area</div>
+<p>One of Egypt's most beautiful modern mosques — a blend of Fatimid and Ottoman design. Free entry, modest dress required (they provide covers).</p>
+<a href="https://www.google.com/maps/search/Al+Sahaba+Mosque+Sharm" class="spot-link">Find on Maps</a>
+</div>
+
+<div class="spot">
+<div class="spot-header"><h3>Old Market (Sharm El Maya)</h3><span class="spot-tag">Shopping</span></div>
+<div class="spot-area">The real Egyptian bazaar</div>
+<p>Spices, lanterns, silver, perfumes, papyrus, leather. Bargain hard — start at 30% of first price. Best in the late afternoon. Walking distance from Al Sahaba Mosque.</p>
+<a href="https://www.google.com/maps/search/Old+Market+Sharm+El+Maya" class="spot-link">Find on Maps</a>
+</div>
+
+<div class="spot">
+<div class="spot-header"><h3>Fares Seafood</h3><span class="spot-tag">Dinner</span></div>
+<div class="spot-area">Inside the Old Market</div>
+<p>A Sharm legend for fresh grilled fish and generous portions. No alcohol, no fuss. Come hungry — best in the evening when it's buzzing.</p>
+<a href="https://www.google.com/maps/search/Fares+Seafood+Sharm" class="spot-link">Find on Maps</a>
+</div>
+
+<div class="spot">
+<div class="spot-header"><h3>Soho Square</h3><span class="spot-tag">Evening</span></div>
+<div class="spot-area">Nabq Bay area</div>
+<p>Open-air entertainment square with a nightly dancing fountain show (~9 PM, free), ice cream, shisha cafes, bowling, kids' rides. Totally family-friendly.</p>
+<a href="https://www.google.com/maps/search/Soho+Square+Sharm+El+Sheikh" class="spot-link">Find on Maps</a>
+</div>
+
+<div class="spot">
+<div class="spot-header"><h3>Rangoli</h3><span class="spot-tag">Dinner</span></div>
+<div class="spot-area">Movenpick Resort · Naama Bay</div>
+<p>Widely regarded as one of the best restaurants in Sharm — top-tier Indian cuisine with panoramic sunset views over the bay. Elegant setting. Reservations recommended.</p>
+<a href="https://www.google.com/maps/search/Rangoli+Indian+Restaurant+Movenpick+Sharm" class="spot-link">Find on Maps</a>
+</div>
+
+<div class="spot">
+<div class="spot-header"><h3>Pomodoro</h3><span class="spot-tag">Italian</span></div>
+<div class="spot-area">Naama Bay · main strip</div>
+<p>Charming Italian with a cozy terrace on the Naama Bay street. Homemade pizzas, fresh pasta, excellent coffee. Warm service, family-friendly, reasonable prices.</p>
+<a href="https://www.google.com/maps/search/Pomodoro+Restaurant+Naama+Bay+Sharm" class="spot-link">Find on Maps</a>
+</div>
+
+<div class="spot">
+<div class="spot-header"><h3>Naama Bay Promenade</h3><span class="spot-tag">Walk</span></div>
+<div class="spot-area">The main tourist strip</div>
+<p>Pedestrian promenade along the beach — cafes, shops, shisha lounges, ice cream. Lively but family-friendly, especially before 9 PM. Great for an evening stroll.</p>
+<a href="https://www.google.com/maps/search/Naama+Bay+Sharm+El+Sheikh" class="spot-link">Find on Maps</a>
+</div>
+
+</div>
+</section>
+
+<div class="divider"><span class="line"></span><span class="ornament">◈</span><span class="line"></span></div>
+
+<section class="container">
+<div class="section-header"><div class="section-label">The Stay</div><h2>Hotel <em>options</em></h2></div>
+<div class="hotels">
+
+<div class="hotel">
+<div class="hotel-rank">I</div>
+<div class="hotel-info"><h4>SUNRISE Arabian Beach Resort</h4><p>Arab-family-themed · halal dining · 7 pools · Sharks Bay</p></div>
+<a href="https://www.booking.com/hotel/eg/sunrise-arabian-beach-resort.html" target="_blank">Book</a>
+</div>
+
+<div class="hotel">
+<div class="hotel-rank">II</div>
+<div class="hotel-info"><h4>Rehana Sharm Resort</h4><p>Couples & family only policy · aquapark · all-inclusive</p></div>
+<a href="https://www.google.com/search?q=Rehana+Sharm+Resort+booking.com" target="_blank">Book</a>
+</div>
+
+<div class="hotel">
+<div class="hotel-rank">III</div>
+<div class="hotel-info"><h4>Cleopatra Luxury Resort</h4><p>Family-friendly · multiple pools · Nabq Bay</p></div>
+<a href="https://www.google.com/search?q=Cleopatra+Luxury+Resort+Sharm+El+Sheikh+booking.com" target="_blank">Book</a>
+</div>
+
+</div>
+</section>
+
+<div class="divider"><span class="line"></span><span class="ornament">◈</span><span class="line"></span></div>
+
+<section class="container">
+<div class="tips">
+<h2>Good to <em>know</em></h2>
+<div class="tips-grid">
+<div class="tip"><span class="tip-icon">i</span><div><h4>Taxis</h4><p>100–200 EGP per ride between zones. Agree the price before getting in — meters aren't the norm.</p></div></div>
+<div class="tip"><span class="tip-icon">ii</span><div><h4>Tipping</h4><p>Expected everywhere — 10–20 EGP for small services, 50–100 EGP for drivers and guides.</p></div></div>
+<div class="tip"><span class="tip-icon">iii</span><div><h4>Dress</h4><p>Modest clothes in Old Market and Al Sahaba Mosque. Swim and beachwear are fine at hotels and private beaches.</p></div></div>
+<div class="tip"><span class="tip-icon">iv</span><div><h4>Visa</h4><p>Free Sinai-only entry stamp on arrival at Sharm airport for Jordanians (valid 15 days). No need for a paid visa if you stay in the Sinai peninsula.</p></div></div>
+<div class="tip"><span class="tip-icon">v</span><div><h4>Book tours in town</h4><p>Hotel tour desks are expensive. Walk into any local tour office in Naama Bay for the same trips at half the price.</p></div></div>
+<div class="tip"><span class="tip-icon">vi</span><div><h4>Stay hydrated</h4><p>Late May sun is intense. Drink bottled water only, and carry sunscreen everywhere.</p></div></div>
+</div>
+</div>
+</section>
+
+<footer>
+<span class="arabic">رحلة سعيدة</span>
+Have a beautiful trip.
+</footer>
+
+</main>
+</body>
+</html>
 
